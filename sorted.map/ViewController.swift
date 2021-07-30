@@ -21,26 +21,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        var firstArray: [(number: Int, text: String)] = [(1, "x"), (3, "z"), (2, "p"), (18, "o"), (10, "y")]
+        let firstArray: [(number: Int, text: String)] = [(1, "x"), (3, "z"), (2, "p"), (18, "o"), (10, "y")]
         //        arrayOfTyplesSorted(firstArray: firstArray)
         print ( arrayOfTyplesSorted(firstArray: firstArray))
     }
     
-    func arrayOfTyplesSorted (firstArray: [(number: Int, text: String)]) -> [(number: Int, text: String)]
+    func arrayOfTyplesSorted (firstArray: [(number: Int, text: String)]) -> [(Int, String)]
     {
         let newarrayOfTyplesSorte = firstArray.map { (number: Int, text: String) in
             return (number*number, text)
+        
         }
         
         let eventNumbersOfTyplesSorted = newarrayOfTyplesSorte.filter { (number: Int, text: String) in
-            if number % 2 == 0 {
-                return true}
-            else
-            {return false}
+            if number % 2 == 0 { return true}
+            else {return false}
+//        return number % 2 == 0
         }
         
-        let sortedEventNumbersOfString = eventNumbersOfTyplesSorted.sorted { zislo, ctroka  in
-            return zislo.1 > ctroka.1
+        let sortedEventNumbersOfString = eventNumbersOfTyplesSorted.sorted { ctroka1, ctroka2  in
+            return ctroka1.1 > ctroka2.1
+        
         }
         return sortedEventNumbersOfString
     }
